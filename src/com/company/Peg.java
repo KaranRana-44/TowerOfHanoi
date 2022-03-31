@@ -47,8 +47,9 @@ public class Peg {
     public int popDisc()
     {
         int x=discs[count-1];
-
+        discs[count-1]=0;
         count--;
+        return x;
 
 //        count--;
         // TODO remove the top disc from the peg.  Return its value.
