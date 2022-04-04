@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Arrays;
+
 public class HanoiTower {
     private Peg peg1;
     private Peg peg2;
@@ -8,6 +10,15 @@ public class HanoiTower {
 
     public HanoiTower(int num)
     {
+        peg1= new Peg(1,num);
+        for(int i=num; i>0; i--) {
+            peg1.addDisc(i);
+            System.out.println("added "+i);
+        }
+        peg2= new Peg(2,num);
+        peg3= new Peg(3,num);
+        numDiscs=num;
+
         // TODO implement constructor
 
 
@@ -19,6 +30,25 @@ public class HanoiTower {
 
     private void moveTower(Peg startPeg, Peg endPeg, Peg extraPeg, int numtoMove)
     {
+        if (numtoMove<2){
+            System.out.println("too easy!");
+        }
+
+        else if(numtoMove==2){
+            startPeg.moveTopDisc(extraPeg);
+            startPeg.moveTopDisc(endPeg);
+            extraPeg.moveTopDisc(endPeg);
+        }
+
+        else{
+            moveTower(startPeg,endPeg,extraPeg,numtoMove-1);
+            startPeg.moveTopDisc(extraPeg);
+            moveTower(endPeg,startPeg,extraPeg,numtoMove-1);
+            extraPeg.moveTopDisc(endPeg);
+            moveTower(startPeg,endPeg,extraPeg,numtoMove-1);
+        }
+
+
         // TODO move discs(number input) from the start peg to the end peg
 
     }

@@ -51,7 +51,6 @@ public class Peg {
         count--;
         return x;
 
-//        count--;
         // TODO remove the top disc from the peg.  Return its value.
 
     }
