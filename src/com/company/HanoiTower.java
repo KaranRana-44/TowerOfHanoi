@@ -34,9 +34,8 @@ public class HanoiTower {
             System.out.println("too easy!");
         }
 
-        else if(numtoMove==2){
+        else if(numtoMove==1){
             startPeg.moveTopDisc(extraPeg);
-            startPeg.moveTopDisc(endPeg);
             extraPeg.moveTopDisc(endPeg);
         }
 
