@@ -30,21 +30,20 @@ public class HanoiTower {
 
     private void moveTower(Peg startPeg, Peg endPeg, Peg extraPeg, int numtoMove)
     {
-        if (numtoMove<2){
+        if (numtoMove<1){
             System.out.println("too easy!");
         }
 
         else if(numtoMove==1){
-            startPeg.moveTopDisc(extraPeg);
-            extraPeg.moveTopDisc(endPeg);
+            startPeg.moveTopDisc(endPeg);
+//            extraPeg.moveTopDisc(endPeg);
         }
 
         else{
-            moveTower(startPeg,endPeg,extraPeg,numtoMove-1);
-            startPeg.moveTopDisc(extraPeg);
-            moveTower(endPeg,startPeg,extraPeg,numtoMove-1);
-            extraPeg.moveTopDisc(endPeg);
-            moveTower(startPeg,endPeg,extraPeg,numtoMove-1);
+            moveTower(startPeg,extraPeg,endPeg,numtoMove-1);
+            startPeg.moveTopDisc(endPeg);
+            moveTower(extraPeg,endPeg,startPeg,numtoMove-1);
+
         }
 
 
